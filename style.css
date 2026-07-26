@@ -1,29 +1,24 @@
 @font-face {
   font-family: "pixel code thin";
-  src: url("/fonts/PixelCode-Thin.woff2") format("woff2");
+  src: url("fonts/PixelCode-Thin.woff2") format("woff2");
   font-display: swap;
 }
 @font-face {
   font-family: "pp mondwest";
-  src: url("/fonts/PPMondwest-Bold.woff2") format("woff2");
+  src: url("fonts/PPMondwest-Bold.woff2") format("woff2");
   font-weight: 700;
   font-display: swap;
 }
 @font-face {
   font-family: "pp mondwest";
-  src: url("/fonts/PPMondwest-Regular.woff2") format("woff2");
+  src: url("fonts/PPMondwest-Regular.woff2") format("woff2");
   font-weight: 400;
-  font-display: swap;
-}
-@font-face {
-  font-family: "atlantis headline";
-  src: url("/fonts/AtlantisHeadline-Bold.woff2") format("woff2");
   font-display: swap;
 }
 :root{
   --fg: #f0f6f0;
   --bg: #222323;
-  --title: "atlantis headline", "pp mondwest", monospace;
+  --title: "pp mondwest", monospace;
   --body: "pixel code thin", "jgs", monospace;
   --fontsize: 13px;
 }

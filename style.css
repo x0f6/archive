@@ -1,21 +1,46 @@
+@font-face {
+  font-family: "pixel code thin";
+  src: url("/fonts/PixelCode-Thin.woff2") format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: "pp mondwest";
+  src: url("/fonts/PPMondwest-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "pp mondwest";
+  src: url("/fonts/PPMondwest-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "atlantis headline";
+  src: url("/fonts/AtlantisHeadline-Bold.woff2") format("woff2");
+  font-display: swap;
+}
 :root{
   --fg: #f0f6f0;
   --bg: #222323;
+  --title: "atlantis headline", "pp mondwest", monospace;
+  --body: "pixel code thin", "jgs", monospace;
+  --fontsize: 13px;
 }
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "jgs", monospace;
+  font-family: var(--body);
   text-transform: uppercase;
   background-color: var(--bg);
   color: var(--fg);
   border-radius: 4px;
-  font-size: 16px;
+  font-size: var(--fontsize);
 }
 
 header {
-  position: fixed;
+  position: sticky;
   top: 0;
   width: 100%;
   padding: 8px;
@@ -28,7 +53,6 @@ main {
   display: grid;
   grid-template-columns: 1fr; /* mobile par défaut */
   gap: 8px;
-  margin-top: 68px;
   padding: 8px;
 }
 
@@ -93,8 +117,9 @@ footer {
 
 h1 {
   color: var(--fg);
-  font-family: "pp mondwest", monospace;
-  font-size: 2rem;
+  font-family: var(--title);
+  font-weight: 700;
+  font-size: 2.6244rem;
 }
 b {
   font-weight: inherit; /* désactive le bold des titres */

@@ -4,34 +4,67 @@
   font-display: swap;
 }
 @font-face {
-  font-family: "pp mondwest";
-  src: url("fonts/PPMondwest-Bold.woff2") format("woff2");
+  font-family: "redaction 35";
+  src: url("fonts/Redaction_35-Regular.woff2") format("woff2");
   font-weight: 700;
   font-display: swap;
 }
 @font-face {
-  font-family: "pp mondwest";
-  src: url("fonts/PPMondwest-Regular.woff2") format("woff2");
+  font-family: "redaction 70";
+  src: url("fonts/Redaction_70-Regular.woff2") format("woff2");
   font-weight: 400;
   font-display: swap;
 }
 :root{
-  --fg: #f0f6f0;
-  --bg: #222323;
-  --title: "pp mondwest", monospace;
-  --body: "pixel code thin", "jgs", monospace;
-  --fontsize: 13px;
+  --fg: #fff;
+  --bg: #000;
+  --title: "redaction 35", serif;
+  --body: "redaction 70", "pixel code thin", "jgs", serif;
+  --fontsize: 24px;
+  --roundness: 0px;
 }
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: var(--body);
-  text-transform: uppercase;
-  background-color: var(--bg);
+  text-transform: lowercase;
+  /* background-color: var(--bg); */
   color: var(--fg);
-  border-radius: 4px;
+  border-radius: var(--roundness);
   font-size: var(--fontsize);
+}
+
+body {
+  background-color: var(--bg);
+}
+
+#tex {
+  position: fixed;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  z-index: 99;
+  width: 100%;
+  height: 100vh;
+  pointer-events: none;
+  filter: grayscale();
+  mix-blend-mode: screen;
+  animation: flicker 0.15s infinite;
+}
+
+@keyframes flicker {
+  0%   { opacity: 0.1; }
+  10%  { opacity: 0.2; }
+  20%  { opacity: 0.05; }
+  30%  { opacity: 0.25; }
+  40%  { opacity: 0.07; }
+  50%  { opacity: 0.17; }
+  60%  { opacity: 0.03; }
+  70%  { opacity: 0.23; }
+  80%  { opacity: 0.09; }
+  90%  { opacity: 0.15; }
+  100% { opacity: 0.1; }
 }
 
 header {
@@ -40,6 +73,7 @@ header {
   width: 100%;
   padding: 8px;
   border-bottom: 1px solid var(--fg);
+  background-color: var(--bg);
   z-index: 5;
   border-radius: 0;
 }
@@ -69,9 +103,19 @@ main {
   display: flex;
   align-items: center;
   gap: 12px;
-  border: solid 1px var(--fg);
+  /* border: solid 1px var(--fg); */
+  background-color: #ffffff0d;
+  padding: 12px;
   overflow: hidden;
   height: 200px; /* hauteur fixe pour toutes les cases */
+}
+
+.item:hover {
+  background-color: #ffffff1a;
+}
+
+.item:hover img, .item:hover video {
+  filter: unset;
 }
 
 .item img, .item video {
@@ -80,14 +124,15 @@ main {
   width: 100%;
   height: 100%;   /* prend toute la hauteur de .item */
   object-fit: contain;
-  filter: url(#duotone); /* effet duotone sur les images avec --fg: #222323; --bg: #f0f6f0;*/
   background-color: transparent;
+  border-radius: var(--roundness);
 }
 
-.item img:hover, .item video:hover {
-  filter: unset;
-  /* object-fit:cover; */
-}
+@media (hover: hover) {
+  .item img, .item video {
+    filter: grayscale();
+    /* filter: url(#duotone); */
+  }
 
 .item p {
   flex: 1 1 50%;
@@ -98,23 +143,23 @@ main {
 pre {
   /*line-height: 1;*/
   /* text-align: left; */
-  font-family: monospace;
+  font-family: "pixel code thin", monospace;
   font-size: min(2vw, 13px);
   white-space: pre;
   overflow-x: hidden;
+  font-style: normal;
 }
 
 footer {
   padding: 8px;
   /* text-align: right; */
-  font-family: monospace;
+  font-style: italic;
 }
 
 h1 {
   color: var(--fg);
   font-family: var(--title);
-  font-weight: 700;
-  font-size: 2.6244rem;
+  font-size: 2rem;
 }
 b {
   font-weight: inherit; /* désactive le bold des titres */

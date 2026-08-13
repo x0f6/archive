@@ -20,7 +20,7 @@
   --bg: #000;
   --title: "redaction 35", serif;
   --body: "redaction 70", "pixel code thin", "jgs", serif;
-  --fontsize: 24px;
+  --fontsize: 20px;
   --roundness: 0px;
 }
 * {
@@ -50,21 +50,28 @@ body {
   pointer-events: none;
   filter: grayscale();
   mix-blend-mode: screen;
-  animation: flicker 0.15s infinite;
+  animation: flicker 0.34s infinite;
 }
 
 @keyframes flicker {
   0%   { opacity: 0.1; }
-  10%  { opacity: 0.2; }
-  20%  { opacity: 0.05; }
-  30%  { opacity: 0.25; }
-  40%  { opacity: 0.07; }
-  50%  { opacity: 0.17; }
-  60%  { opacity: 0.03; }
-  70%  { opacity: 0.23; }
-  80%  { opacity: 0.09; }
-  90%  { opacity: 0.15; }
+  10%  { opacity: 0.12; }
+  20%  { opacity: 0.07; }
+  30%  { opacity: 0.14; }
+  40%  { opacity: 0.09; }
+  50%  { opacity: 0.11; }
+  60%  { opacity: 0.07; }
+  70%  { opacity: 0.13; }
+  80%  { opacity: 0.1; }
+  90%  { opacity: 0.12; }
   100% { opacity: 0.1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #tex {
+    animation: none;
+    opacity: 0.15; /* valeur fixe, pas de scintillement */
+  }
 }
 
 header {

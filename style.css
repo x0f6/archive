@@ -16,23 +16,35 @@
   font-display: swap;
 }
 :root{
-  --fg: #fff;
-  --bg: #000;
-  --title: "redaction 35", serif;
-  --body: "redaction 70", "pixel code thin", "jgs", serif;
-  --fontsize: 20px;
+  --title: "sf pro", "redaction 35", sans-serif;
+  --body: "sf mono", "redaction 70", "pixel code thin", "jgs", monospace;
+  --fontsize: 13px;
   --roundness: 0px;
+}
+@media (prefers-color-scheme: light) {
+  :root{
+    --fg: black;
+    --bg: white;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root{
+    --fg: white;
+    --bg: black;
+  }
 }
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: var(--body);
+  font-family: var(--title);
+  font-feature-settings: "case";
   text-transform: lowercase;
   /* background-color: var(--bg); */
   color: var(--fg);
   border-radius: var(--roundness);
   font-size: var(--fontsize);
+  vertical-align: middle;
 }
 
 body {
@@ -40,7 +52,7 @@ body {
 }
 
 #tex {
-  position: fixed;
+  /* position: fixed;
   top: 0;
   left: 0;
   object-fit: cover;
@@ -50,10 +62,11 @@ body {
   pointer-events: none;
   filter: grayscale();
   mix-blend-mode: screen;
-  animation: flicker 0.34s infinite;
+  animation: flicker 0.34s infinite; */
+  display: none;
 }
 
-@keyframes flicker {
+/* @keyframes flicker {
   0%   { opacity: 0.1; }
   10%  { opacity: 0.12; }
   20%  { opacity: 0.07; }
@@ -65,92 +78,74 @@ body {
   80%  { opacity: 0.1; }
   90%  { opacity: 0.12; }
   100% { opacity: 0.1; }
-}
+} */
 
-@media (prefers-reduced-motion: reduce) {
+/* @media (prefers-reduced-motion: reduce) {
   #tex {
     animation: none;
-    opacity: 0.15; /* valeur fixe, pas de scintillement */
+    opacity: 0.15;
   }
-}
+} */
 
 header {
   position: sticky;
   top: 0;
   width: 100%;
-  padding: 8px;
+  padding: 16px;
   border-bottom: 1px solid var(--fg);
   background-color: var(--bg);
   z-index: 5;
   border-radius: 0;
+  /* text-align: center; */
 }
 
 main {
   display: grid;
-  grid-template-columns: 1fr; /* mobile par défaut */
-  gap: 8px;
-  padding: 8px;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: start;
+  padding: 32px;
 }
 
 @media (min-width: 600px) {
   main { grid-template-columns: repeat(2, 1fr); }
 }
 @media (min-width: 1024px) {
-  main { grid-template-columns: repeat(3, 1fr); } /* FHD */
-  .item { height: 260px !important; }
+  main { grid-template-columns: repeat(3, 1fr); }
 }
 @media (min-width: 1600px) {
   main { grid-template-columns: repeat(4, 1fr); }
 }
 @media (min-width: 2200px) {
-  main { grid-template-columns: repeat(5, 1fr); } /* 4K+ */
+  main { grid-template-columns: repeat(5, 1fr); }
 }
 
 .item {
   display: flex;
-  align-items: center;
-  gap: 12px;
-  /* border: solid 1px var(--fg); */
-  background-color: #ffffff0d;
-  padding: 12px;
-  overflow: hidden;
-  height: 200px; /* hauteur fixe pour toutes les cases */
-}
-
-.item:hover {
-  background-color: #ffffff1a;
-}
-
-.item:hover img, .item:hover video {
-  filter: unset;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .item img, .item video {
-  flex: 1 1 50%;
-  min-width: 0;
   width: 100%;
-  height: 100%;   /* prend toute la hauteur de .item */
-  object-fit: contain;
+  height: auto;
+  display: block;
+  object-fit: cover;
   background-color: transparent;
   border-radius: var(--roundness);
 }
 
-@media (hover: hover) {
-  .item img, .item video {
-    filter: grayscale();
-    /* filter: url(#duotone); */
-  }
-
-.item p {
-  flex: 1 1 50%;
-  min-width: 0;
-  text-align: left;
+.item * {
+  text-align: center;
+  font-family: var(--body);
+  color: color-mix(in srgb, var(--fg) 50%, transparent);
 }
 
 pre {
   /*line-height: 1;*/
   /* text-align: left; */
-  font-family: "pixel code thin", monospace;
+  font-family: var(--body);
+  font-weight: 100;
   font-size: min(2vw, 13px);
   white-space: pre;
   overflow-x: hidden;
@@ -163,11 +158,21 @@ footer {
   font-style: italic;
 }
 
-h1 {
+/* h1 {
   color: var(--fg);
-  font-family: var(--title);
-  font-size: 2rem;
+  font-family: var(--body);
+  letter-spacing: -0.3em;
+  font-size: 2.6244rem;
+  font-weight: initial;
+} */
+
+svg {
+  width: 4%;
+  fill: var(--fg);
+  margin-right: 32px;
+  margin-left: 16px;
 }
+
 b {
   font-weight: inherit; /* désactive le bold des titres */
 }

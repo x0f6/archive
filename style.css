@@ -79,10 +79,13 @@ header * {
 
 main {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 32px;
+  row-gap: 64px;
   align-items: start;
   padding: 32px;
+  margin-left: 32px;
+  margin-right: 32px;
 }
 
 .item {
@@ -136,11 +139,11 @@ footer {
   font-style: italic;
   /* background-color: rgb(247, 247, 247); */
   border: 1px solid var(--fg);
-  margin: 32px;
+  margin: 32px 64px 64px 64px;
 }
 
 svg {
-  width: 5%;
+  width: 6rem;
   fill: var(--fg);
   margin-right: 32px;
   margin-left: 16px;

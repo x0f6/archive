@@ -6,8 +6,8 @@
 }
 @font-face {
   font-family: 'bristol';
-  src: url('bristol.woff2') format('woff2'),
-       url('bristol.woff') format('woff');
+  src: url('fonts/Bristol.woff2') format('woff2'),
+       url('fonts/Bristol.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;

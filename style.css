@@ -1,10 +1,4 @@
 @font-face {
-  font-family: 'Google Sans Code';
-  src:
-    url('fonts/GoogleSansCode-Regular.woff2') format('woff2');
-  font-display: swap;
-}
-@font-face {
   font-family: 'bristol';
   src: url('fonts/Bristol.woff2') format('woff2'),
        url('fonts/Bristol.woff') format('woff');
@@ -24,15 +18,16 @@
   --title: "commitmonov143", system-ui, sans-serif;
   --mono: "commitmonov143", monospace;
   --fontsize: 1.2rem;
-  --roundness: 0px;
+  --roundness: 16px;
   /* font-size: 87.5%; */
-  /* --fg-muted: color-mix(in srgb, var(--fg) 67%, transparent); */
+  --accent: #ff6600;
+  --fg-muted: color-mix(in srgb, var(--fg) 33%, transparent);
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    --fg: #111;
-    --bg: #aaa;
+    --fg: #0F0E12;
+    --bg: #E5E5E5;
     font-weight: 600;
     letter-spacing: 0.005em;
   }
@@ -40,8 +35,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --fg: #aaa;
-    --bg: #111;
+    --fg: #E5E5E5;
+    --bg: #0F0E12;
     font-weight: 400;
     letter-spacing: 0;
   }
@@ -56,7 +51,7 @@
   /* text-transform: capitalize; */
   color: var(--fg);
   border-radius: var(--roundness);
-  font-feature-settings: 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'cv02', 'cv06', 'cv08', 'cv10' !important;
+  font-feature-settings: 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'cv06', 'cv08', 'cv10' !important; /* 'cv02', */
 }
 
 body {
@@ -81,8 +76,8 @@ header {
   grid-template-columns: 1fr auto;
   align-items: center;
   gap: 1rem;
-  padding-left: 14rem;
-  padding-right: 14rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
 }
 
 header .header-logo,
@@ -100,13 +95,15 @@ header .header-title {
   justify-self: center;
   text-align: center;
   /* font-weight: bold; */
-  font-family: "janeausten";
+  /* font-family: "janeausten"; */
   /* font-feature-settings:initial !important; */
   /* background-color: var(--fg);
   color: var(--bg); */
   font-size: 1.62em;
   padding-top: 7px;
   margin-right: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
 }
 
 
@@ -180,6 +177,7 @@ h1 {
   overflow: hidden;
   background-color: transparent;
   cursor: pointer;
+  border: 1px solid var(--fg-muted);
 }
 
 .item .media img,
@@ -191,7 +189,7 @@ h1 {
   display: block;
   object-fit: cover;
   background-color: transparent;
-  border-radius: var(--roundness);
+  border-radius: unset;
   filter: grayscale();
 }
 

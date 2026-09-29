@@ -12,27 +12,23 @@
   font-style: normal;
   font-display: swap;
 }
-@font-face {
-  font-family: 'commitmonov143';
-  src: url('fonts/CommitMono\ VariableFont.woff2') format('woff2'),
-  font-display: swap;
-}
+
 
 :root {
-  --sans: "commitmonov143", system-ui, sans-serif;
-  --etoile: "commitmonov143", "inter variable", inter, system-ui, sans-serif;
-  --title: "commitmonov143", system-ui, sans-serif;
-  --mono: "commitmonov143", monospace;
-  --fontsize: 1.2rem;
+  --sans: "bristol", system-ui, sans-serif;
+  --etoile: "bristol", "inter variable", inter, system-ui, sans-serif;
+  --title: "bristol", system-ui, sans-serif;
+  --mono: "google sans code", monospace;
+  --fontsize: 1rem;
   --roundness: 0px;
   /* font-size: 87.5%; */
+  --fg: #31c497;
   /* --fg-muted: color-mix(in srgb, var(--fg) 67%, transparent); */
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    --fg: #111;
-    --bg: #aaa;
+    --bg: #FFFFFF;
     font-weight: 600;
     letter-spacing: 0.005em;
   }
@@ -40,8 +36,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --fg: #aaa;
-    --bg: #111;
+    --bg: #000000;
     font-weight: 400;
     letter-spacing: 0;
   }
@@ -53,10 +48,9 @@
   box-sizing: border-box;
   font-family: var(--sans);
   font-feature-settings: "case";
-  /* text-transform: capitalize; */
+  text-transform: uppercase;
   color: var(--fg);
   border-radius: var(--roundness);
-  font-feature-settings: 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'cv02', 'cv06', 'cv08', 'cv10' !important;
 }
 
 body {
@@ -81,8 +75,6 @@ header {
   grid-template-columns: 1fr auto;
   align-items: center;
   gap: 1rem;
-  padding-left: 14rem;
-  padding-right: 14rem;
 }
 
 header .header-logo,
@@ -99,11 +91,10 @@ header #logo-anim {
 header .header-title {
   justify-self: center;
   text-align: center;
-  /* font-weight: bold; */
-  font-family: "janeausten";
-  /* font-feature-settings:initial !important; */
-  /* background-color: var(--fg);
-  color: var(--bg); */
+  font-weight: bold;
+  font-family: var(--title);
+  background-color: var(--fg);
+  color: var(--bg);
   font-size: 1.62em;
   padding-top: 7px;
   margin-right: 3rem;
@@ -121,13 +112,13 @@ h1 {
 
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
-  gap: 4rem;
-  row-gap: 4rem;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: 8rem;
+  row-gap: 8rem;
   align-items: start;
   padding: 2rem;
-  margin-left: 14rem;
-  margin-right: 14rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
   margin-top: 2rem;
 }
 
@@ -153,9 +144,15 @@ h1 {
 }
 
 .item:hover .desc {
+  transform: rotate(5deg);
+  font-size: 162%;
+  /* font-weight: 800; */
   background-color: var(--fg);
   color: var(--bg);
-  font-weight: 700;
+  margin-bottom: -999px;
+  transition: all 0.2s ease-in-out;
+  line-height: 1.5rem;
+  padding: 1rem 0.5rem 0.7rem 0.5rem;
 }
 
 .item:hover .desc .etoile {
@@ -163,7 +160,9 @@ h1 {
 }
 
 .item:hover .media {
-  border: 1px solid var(--fg);
+  transform: rotate(-3deg) scale(133%);
+  /* border: 1px solid var(--fg); */
+  transition: all 0.2s ease-in-out;
 }
 
 /* .item .desc {
@@ -225,9 +224,6 @@ footer {
   padding: 2rem;
   border: 1px solid var(--fg);
   margin: 2rem 4rem 4rem 4rem;
-  font-size: 1rem;
-  margin-left: 16rem;
-  margin-right: 16rem;
 }
 
 footer a:hover {
@@ -402,7 +398,7 @@ ul {
 .planete text {
   /* fill: var(--fg); */
   /* font-size: 16px; */
-  letter-spacing: 0.22em;
+  letter-spacing: 0.21em;
 }
 
 @keyframes tourne {
